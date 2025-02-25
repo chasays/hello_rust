@@ -65,7 +65,9 @@ fn main() {
         println!("aa: {}", aa);
     }
     println!("newaa: {}", aa);
-    let space = "    ";
+    let mut space = "    ";
     println!("space: {}", space.len());
-    // 覆盖只能
+    // 覆盖只能 同一个数据类型的；
+    space = "123";
+
 }
