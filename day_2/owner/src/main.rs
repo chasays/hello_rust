@@ -28,8 +28,29 @@ fn main() {
     let x = 5;
     makes_copy(x); // x 是基本类型，所以可以复制
     println!("{}", x);
-
+    //brorrow
+    let mut m = String::from("hello");
+    {
+        let r1 = &m;
+    }
+    let r2 = &mut m;
+    println!("{}", r2);
+    // 可变引用和不可变引用不能同时存在
+    let r3 = &m;
+    // let r4 = &mut m; // error occurs
+    println!("{}", r3);
+    // println!("{}", r4);
+    // dangling reference
+    let reference_to_nothing = dangle();
+    println!("{}", reference_to_nothing);
 }
+
+fn dangle() -> String {
+    let s = String::from("hello");
+    // &s
+    s
+}
+
 
 fn takes_ownership(some_string: String) {
     println!("{}", some_string);
